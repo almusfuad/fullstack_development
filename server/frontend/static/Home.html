@@ -16,9 +16,9 @@ const logout = async (e) => {
     if (json) {
       let username = sessionStorage.getItem("username");
       sessionStorage.removeItem("username");
+      alert("Logged out "+username+"...")
       window.location.href = window.location.origin;
       window.location.reload();
-      alert("Logged out "+username+"...")
     }
     else {
       alert("The user could not be logged out.")
@@ -31,7 +31,7 @@ let checkSession = ()=>{
   if (curr_user && curr_user !== "") {
     document.getElementById("loginlogout").innerHTML = 
     '<span class="homepage_links">' + curr_user +'</span>' +
-    '<a class="homepage_links" onclick="logout()" href="/">Logout</a>'
+    '<a class="homepage_links" onclick="logout()" href="javascript:void(0)">Logout</a>'
   } else {
     document.getElementById("loginlogout").innerHTML = 
     '<a class="homepage_links" href="/login">Login</a>'+
